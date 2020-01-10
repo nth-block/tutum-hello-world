@@ -18,9 +18,10 @@
 <body>
 	<img id="logo" src="logo.png" />
 	<h1><?php echo "Hello ".($_ENV["NAME"]?$_ENV["NAME"]:"world")."!"; ?></h1>
-	<?php if($_ENV["HOSTNAME"]) {?><h3>My hostname is <?php echo $_ENV["HOSTNAME"]; ?></h3><?php } ?>
+	<?php if($_ENV["HOSTNAME"]) {?><h3>My hostname is <?php echo $_ENV["HOSTNAME"]; ?></h3><?php } ?><br>
+	<?php if($_ENV["REGION_NAME"]) {?><h3>I am running in <?php echo $_ENV["REGION_NAME"]; ?></h3><?php } ?>
 	<?php
-	$links = [];
+	$links = [];	
 	foreach($_ENV as $key => $value) {
 		if(preg_match("/^(.*)_PORT_([0-9]*)_(TCP|UDP)$/", $key, $matches)) {
 			$links[] = [
